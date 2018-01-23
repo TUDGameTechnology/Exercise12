@@ -191,7 +191,7 @@ namespace {
 	Graphics4::ConstantLocation mLocation;
 	mat4 PV;
 	float lastTime = 0;
-	vec3 position(0, 2, -3);
+	vec3 position(0, 1.75f, -1.25f);
 	float lastSoundTime = 0;
 	
 	void update() {
@@ -209,7 +209,7 @@ namespace {
 		Graphics4::begin();
 		Graphics4::clear(Graphics4::ClearColorFlag | Graphics4::ClearDepthFlag, 0xff9999FF, 1000.0f);
 		Graphics4::setPipeline(pipeline);
-		PV = mat4::Perspective(60, (float)width / (float)height, 0.1f, 100) * mat4::lookAt(position, vec3(position.x(), position.y(), position.z() + 10.0f), vec3(0, 1, 0));
+		PV = mat4::Perspective(90, (float)width / (float)height, 0.1f, 100) * mat4::lookAt(position, vec3(0.0, 1.75f, 0.0), vec3(0, 1, 0));
 		Graphics4::setMatrix(pvLocation, PV);
 		
 		MeshObject** current = &objects[0];
